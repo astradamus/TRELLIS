@@ -4,7 +4,7 @@ from tqdm import tqdm
 import utils3d
 from PIL import Image
 
-from ..renderers import OctreeRenderer, GaussianRenderer, MeshRenderer, GSplatRenderer
+from ..renderers import OctreeRenderer, MeshRenderer, GSplatRenderer
 from ..representations import Octree, Gaussian, MeshExtractResult
 from ..modules import sparse as sp
 from .random_utils import sphere_hammersley_sequence
@@ -50,10 +50,7 @@ def get_renderer(sample, gs_renderer='gsplat', **kwargs):
         renderer.rendering_options.ssaa = kwargs.get('ssaa', 4)
         renderer.pipe.primitive = sample.primitive
     elif isinstance(sample, Gaussian):
-        if gs_renderer == 'gsplat':
-            renderer = GSplatRenderer()
-        else:
-            renderer = GaussianRenderer()
+        renderer = GSplatRenderer()
         renderer.rendering_options.resolution = kwargs.get('resolution', 512)
         renderer.rendering_options.near = kwargs.get('near', 0.8)
         renderer.rendering_options.far = kwargs.get('far', 1.6)
