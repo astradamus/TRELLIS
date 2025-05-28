@@ -264,7 +264,7 @@ fi
 
 if [ "$GSPLAT" = true ] ; then
     if [ "$PLATFORM" = "cuda" ] ; then
-        pip install git+https://github.com/nerfstudio-project/gsplat
+        pip install git+https://github.com/nerfstudio-project/gsplat@v1.4.0
     else
         echo "[GSPLAT] Unsupported platform: $PLATFORM"
     fi
