@@ -1,7 +1,6 @@
 import importlib
 
 __attributes = {
-    'OctreeRenderer': 'octree_renderer',
     'GSplatRenderer': 'gsplat_renderer',
     'MeshRenderer': 'mesh_renderer',
 }
@@ -26,6 +25,5 @@ def __getattr__(name):
 
 # For Pylance
 if __name__ == '__main__':
-    from .octree_renderer import OctreeRenderer
     from .gsplat_renderer import GSplatRenderer
     from .mesh_renderer import MeshRenderer

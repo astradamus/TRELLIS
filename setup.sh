@@ -1,5 +1,5 @@
 # Read Arguments
-TEMP=`getopt -o h --long help,new-env,basic,train,xformers,flash-attn,diffoctreerast,vox2seq,spconv,mipgaussian,kaolin,nvdiffrast,gsplat,demo -n 'setup.sh' -- "$@"`
+TEMP=`getopt -o h --long help,new-env,basic,train,xformers,flash-attn,vox2seq,spconv,mipgaussian,kaolin,nvdiffrast,gsplat,demo -n 'setup.sh' -- "$@"`
 
 eval set -- "$TEMP"
 
@@ -9,7 +9,6 @@ BASIC=false
 TRAIN=false
 XFORMERS=false
 FLASHATTN=false
-DIFFOCTREERAST=false
 VOX2SEQ=false
 LINEAR_ASSIGNMENT=false
 SPCONV=false
@@ -32,7 +31,6 @@ while true ; do
         --train) TRAIN=true ; shift ;;
         --xformers) XFORMERS=true ; shift ;;
         --flash-attn) FLASHATTN=true ; shift ;;
-        --diffoctreerast) DIFFOCTREERAST=true ; shift ;;
         --vox2seq) VOX2SEQ=true ; shift ;;
         --spconv) SPCONV=true ; shift ;;
         --mipgaussian) MIPGAUSSIAN=true ; shift ;;
@@ -59,7 +57,6 @@ if [ "$HELP" = true ] ; then
     echo "  --train                 Install training dependencies"
     echo "  --xformers              Install xformers"
     echo "  --flash-attn            Install flash-attn"
-    echo "  --diffoctreerast        Install diffoctreerast"
     echo "  --vox2seq               Install vox2seq"
     echo "  --spconv                Install spconv"
     echo "  --mipgaussian           Install mip-splatting"
@@ -212,16 +209,6 @@ if [ "$NVDIFFRAST" = true ] ; then
         pip install /tmp/extensions/nvdiffrast
     else
         echo "[NVDIFFRAST] Unsupported platform: $PLATFORM"
-    fi
-fi
-
-if [ "$DIFFOCTREERAST" = true ] ; then
-    if [ "$PLATFORM" = "cuda" ] ; then
-        mkdir -p /tmp/extensions
-        git clone --recurse-submodules https://github.com/JeffreyXiang/diffoctreerast.git /tmp/extensions/diffoctreerast
-        pip install /tmp/extensions/diffoctreerast
-    else
-        echo "[DIFFOCTREERAST] Unsupported platform: $PLATFORM"
     fi
 fi
 

@@ -63,7 +63,7 @@
     
     Create a new conda environment named `trellis` and install the dependencies:
     ```sh
-    . ./setup.sh --new-env --basic --xformers --flash-attn --diffoctreerast --spconv --mipgaussian --kaolin --nvdiffrast
+    . ./setup.sh --new-env --basic --xformers --flash-attn --spconv --mipgaussian --kaolin --nvdiffrast
     ```
     The detailed usage of `setup.sh` can be found by running `. ./setup.sh --help`.
     ```sh
@@ -75,7 +75,6 @@
         --train                 Install training dependencies
         --xformers              Install xformers
         --flash-attn            Install flash-attn
-        --diffoctreerast        Install diffoctreerast
         --vox2seq               Install vox2seq
         --spconv                Install spconv
         --mipgaussian           Install mip-splatting
@@ -303,8 +302,8 @@ Adjust the file paths and parameters to match your experimental setup.
 ## ⚖️ License
 
 TRELLIS models and the majority of the code are licensed under the [MIT License](LICENSE). The following submodules may have different licenses:
-- [**diffoctreerast**](https://github.com/JeffreyXiang/diffoctreerast): We developed a CUDA-based real-time differentiable octree renderer for rendering radiance fields as part of this project. This renderer is derived from the [diff-gaussian-rasterization](https://github.com/graphdeco-inria/diff-gaussian-rasterization) project and is available under the [LICENSE](https://github.com/JeffreyXiang/diffoctreerast/blob/master/LICENSE).
-
+- [**diffoctreerast**]~~(https://github.com/JeffreyXiang/diffoctreerast): We developed a CUDA-based real-time differentiable octree renderer for rendering radiance fields as part of this project. This renderer is derived from the [diff-gaussian-rasterization](https://github.com/graphdeco-inria/diff-gaussian-rasterization) project and is available under the [LICENSE](https://github.com/JeffreyXiang/diffoctreerast/blob/master/LICENSE).~~
+    - **This module has been completely removed due to non-commercial license of derived module.**
 
 - [**Modified Flexicubes**](https://github.com/MaxtirError/FlexiCubes): In this project, we used a modified version of [Flexicubes](https://github.com/nv-tlabs/FlexiCubes) to support vertex attributes. This modified version is licensed under the [LICENSE](https://github.com/nv-tlabs/FlexiCubes/blob/main/LICENSE.txt).
 
